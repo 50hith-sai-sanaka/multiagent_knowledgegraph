@@ -1,1 +1,10 @@
+# Environment files
 .env
+
+# Python virtual environment – should be recreated locally from requirements.txt
+venv/
+
+# Python byte‑code and caches
+*.pyc
+__pycache__/
+
