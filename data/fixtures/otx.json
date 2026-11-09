@@ -1,0 +1,24 @@
+[
+  {
+    "id": "otx-pulse-3001",
+    "name": "AgentTesla Infrastructure Campaign September 2026",
+    "author_name": "OTX_Threat_Analyst_X",
+    "created": "2026-09-21 06:00:00",
+    "adversary": "AgentTesla",
+    "tags": ["AgentTesla", "C2", "keylogger"],
+    "indicators": [
+      {
+        "id": "ind-9001",
+        "indicator": "185.220.101.4",
+        "type": "IPv4",
+        "description": "Observed hosting AgentTesla C2 listener"
+      },
+      {
+        "id": "ind-9002",
+        "indicator": "45.154.255.87",
+        "type": "IPv4",
+        "description": "Cobalt Strike beacon host"
+      }
+    ]
+  }
+]

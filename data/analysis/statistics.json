@@ -1,0 +1,12 @@
+{
+  "total_normalized_records": 16270,
+  "unique_iocs": 12012,
+  "cross_source_overlaps": 259,
+  "detected_conflicts": 63,
+  "source_breakdown": {
+    "ThreatFox": 3000,
+    "URLhaus": 10000,
+    "MalwareBazaar": 1536,
+    "OTX": 1734
+  }
+}

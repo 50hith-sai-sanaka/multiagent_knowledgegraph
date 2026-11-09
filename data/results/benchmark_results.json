@@ -1,0 +1,28 @@
+[
+  {
+    "protocol": "adhoc",
+    "workload_size": 4,
+    "operations_attempted": 4,
+    "operations_committed": 4,
+    "conflicts_detected": 0,
+    "GIR": 20.0,
+    "CR": 0.0,
+    "CRA": 0.0,
+    "PTC": 0.0,
+    "mean_latency_ms": 2.0,
+    "p95_latency_ms": 2.0
+  },
+  {
+    "protocol": "mpac",
+    "workload_size": 4,
+    "operations_attempted": 0,
+    "operations_committed": 1,
+    "conflicts_detected": 0,
+    "GIR": 5.0,
+    "CR": 0.0,
+    "CRA": 0.0,
+    "PTC": 0.0,
+    "mean_latency_ms": 2.0,
+    "p95_latency_ms": 2.0
+  }
+]

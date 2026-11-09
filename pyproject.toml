@@ -1,0 +1,14 @@
+[tool.ruff]
+target-version = "py39"   # match the runtime Python version
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "C4", "BLE", "SIM"]
+ignore = [
+    "UP017",   # datetime.UTC alias – not available on Python 3.9
+    "PYI063",  # positional-only parameter syntax – not needed here
+    "SIM117",  # nested async with – separate for readability
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]

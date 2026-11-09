@@ -1,0 +1,4810 @@
+[
+  {
+    "ioc_type": "ip",
+    "ioc_value": "45.135.194.96",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 80,
+      "difference": 30
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1961005",
+        "malware_family": "Mirai",
+        "confidence": 80,
+        "reporter": "seckle"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948147-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948144-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948018-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948008-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948009-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948010-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948011-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948012-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948013-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948014-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948015-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948016-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948017-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "aa4f09a1be061cde697c990df49bb09b78639acc1f0decc7b7ef5c30f4df694f",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "exe",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "exe"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 60,
+      "max": 100,
+      "difference": 40
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1961169",
+        "malware_family": "Unknown malware",
+        "confidence": 100,
+        "reporter": "Daydream"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "aa4f09a1be06-sha256",
+        "malware_family": "exe",
+        "confidence": 60,
+        "reporter": "Daydream"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "1e29472ea92b8218232d63d0c72859e94e531d9b6d804555c97b26b076af4d23",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "exe",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "exe"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 60,
+      "max": 100,
+      "difference": 40
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1961170",
+        "malware_family": "Unknown malware",
+        "confidence": 100,
+        "reporter": "Daydream"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "1e29472ea92b-sha256",
+        "malware_family": "exe",
+        "confidence": 60,
+        "reporter": "Daydream"
+      }
+    ]
+  },
+  {
+    "ioc_type": "domain",
+    "ioc_value": "sayosay.cc",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown loader",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown Loader"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "applescript",
+        "sources": [
+          [
+            "URLhaus",
+            " AppleScript"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1961237",
+        "malware_family": "Unknown Loader",
+        "confidence": 75,
+        "reporter": "anonymous"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946267-host",
+        "malware_family": " AppleScript",
+        "confidence": 50,
+        "reporter": "anonymous"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "https://feed-delta.com/f/qus5n9iecneukfdd5bqagg/8d5wkyb6",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "amos",
+        "sources": [
+          [
+            "ThreatFox",
+            "AMOS"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "clickfix",
+        "sources": [
+          [
+            "URLhaus",
+            "ClickFix"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 100,
+      "difference": 50
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960901",
+        "malware_family": "AMOS",
+        "confidence": 100,
+        "reporter": "c4ffeine"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948123-url",
+        "malware_family": "ClickFix",
+        "confidence": 50,
+        "reporter": "c4ffeine"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "https://feed-delta.com/curl/18r59ofv/fxv1t3fowzox6ghlb.txt",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "amos",
+        "sources": [
+          [
+            "ThreatFox",
+            "AMOS"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "clickfix",
+        "sources": [
+          [
+            "URLhaus",
+            "ClickFix"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 100,
+      "difference": 50
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960900",
+        "malware_family": "AMOS",
+        "confidence": 100,
+        "reporter": "c4ffeine"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948122-url",
+        "malware_family": "ClickFix",
+        "confidence": 50,
+        "reporter": "c4ffeine"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "0a2c662438a6f3e2bad32220cb38dc36",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "sigloader",
+        "sources": [
+          [
+            "ThreatFox",
+            "SigLoader"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wailsloader",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WailsLoader"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960779",
+        "malware_family": "SigLoader",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "0a2c662438a6-md5",
+        "malware_family": "WailsLoader",
+        "confidence": 90,
+        "reporter": "SquiblydooBlog"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "1b2432c99b877ac71a37d505ca7165f8d46cb4fc9a98762d54c529c7aef26d71",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "sigloader",
+        "sources": [
+          [
+            "ThreatFox",
+            "SigLoader"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wailsloader",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WailsLoader"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960777",
+        "malware_family": "SigLoader",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "1b2432c99b87-sha256",
+        "malware_family": "WailsLoader",
+        "confidence": 90,
+        "reporter": "SquiblydooBlog"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "cb69d574039e35b0fc6dbaf611212acc",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "stormous",
+        "sources": [
+          [
+            "ThreatFox",
+            "Stormous"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "stormser",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "Stormser"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960773",
+        "malware_family": "Stormous",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "cb69d574039e-md5",
+        "malware_family": "Stormser",
+        "confidence": 90,
+        "reporter": "NyxIndius"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "f1692afdc0662c3448563ba69eb6052b27d0981d48d3400c1d5bfaa5a339e0b1",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "stormous",
+        "sources": [
+          [
+            "ThreatFox",
+            "Stormous"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "stormser",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "Stormser"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960771",
+        "malware_family": "Stormous",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "f1692afdc066-sha256",
+        "malware_family": "Stormser",
+        "confidence": 90,
+        "reporter": "NyxIndius"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "1843db1abb66e726e081329dd239d6e8",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960763",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "1843db1abb66-md5",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "675a6bcf1161098f7fc8e65cf6b07ec8",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960760",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "675a6bcf1161-md5",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "92a4bdc95e0d99200c7e703b2739ffdc1c0dd6b974bd4e97a375ad5a09b1e480",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960761",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "92a4bdc95e0d-sha256",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "af5b59d2c3af86ee2d97b9bb459dec7b83e5033cfc9b53fb319dbcdddb79e5d5",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960758",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "af5b59d2c3af-sha256",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "329706c148a26631625f413212a3a09a0c2fbdab23c6ab5f4ba671101a15ecde",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960752",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "329706c148a2-sha256",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "6af89b4a89be1cf869a1d4c14674ee45",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960754",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "6af89b4a89be-md5",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "47bec036fe26fe8d70dac48627ce1de3",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960745",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "47bec036fe26-md5",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "bd4a59eeea77957ab00a36d7d8424400",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960742",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "bd4a59eeea77-md5",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "0fdf8b638918ac7a04c36e6ea150548dcd245caa8674601c8a9d5905e77f9bc3",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960743",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "0fdf8b638918-sha256",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "whack_sh"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "0ef5b3b9b79524aa607dd3e9161afc44",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "nanocore rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Nanocore RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "nanocore",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "NanoCore"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960739",
+        "malware_family": "Nanocore RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "0ef5b3b9b795-md5",
+        "malware_family": "NanoCore",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "c77785269a54df0173e98b8a53a22594a104e701a5132bd53d03f4cb0f285c21",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960740",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "c77785269a54-sha256",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "b93e588ad9730abd74f04a59b1c668e0185b0b5098677aedb8cd94c2d2da133b",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "nanocore rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Nanocore RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "nanocore",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "NanoCore"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960737",
+        "malware_family": "Nanocore RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "b93e588ad973-sha256",
+        "malware_family": "NanoCore",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "1df72936bb4f5e8daef3a49031e39136",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "stealler",
+        "sources": [
+          [
+            "ThreatFox",
+            "stealler"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "rustystealer",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "RustyStealer"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960730",
+        "malware_family": "stealler",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "1df72936bb4f-md5",
+        "malware_family": "RustyStealer",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "8c047042f5116b0834bb28c3c8f17ad2",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "rn stealer",
+        "sources": [
+          [
+            "ThreatFox",
+            "RN Stealer"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "revstealer",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "RevStealer"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960727",
+        "malware_family": "RN Stealer",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "8c047042f511-md5",
+        "malware_family": "RevStealer",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "727ad42958709d4a03d2153e2d7a29270a1f38d5e67b8f54c7953ad508bc2fc2",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "stealler",
+        "sources": [
+          [
+            "ThreatFox",
+            "stealler"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "rustystealer",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "RustyStealer"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960728",
+        "malware_family": "stealler",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "727ad4295870-sha256",
+        "malware_family": "RustyStealer",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "af75f43a0311eda6a3aa5da8adfd80fdb61b343a90694563d439a28b1cc68d9f",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "rn stealer",
+        "sources": [
+          [
+            "ThreatFox",
+            "RN Stealer"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "revstealer",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "RevStealer"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960725",
+        "malware_family": "RN Stealer",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "af75f43a0311-sha256",
+        "malware_family": "RevStealer",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "https://4k4iard.tupek.store/update.sh",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "macos",
+        "sources": [
+          [
+            "URLhaus",
+            " macos"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960639",
+        "malware_family": "Unknown malware",
+        "confidence": 75,
+        "reporter": "anonymous"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948035-url",
+        "malware_family": " macos",
+        "confidence": 50,
+        "reporter": "anonymous"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "130.12.180.212",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "aisuru",
+        "sources": [
+          [
+            "ThreatFox",
+            "Aisuru"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "130-12-180-212",
+        "sources": [
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ],
+          [
+            "URLhaus",
+            "130-12-180-212"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "cowrie",
+        "sources": [
+          [
+            "URLhaus",
+            "cowrie"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 100,
+      "difference": 50
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960505",
+        "malware_family": "Mirai",
+        "confidence": 75,
+        "reporter": "vlasovmichael"
+      },
+      {
+        "source": "ThreatFox",
+        "record_id": "1958237",
+        "malware_family": "Aisuru",
+        "confidence": 100,
+        "reporter": "Bitsight"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947584-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947585-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947586-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947582-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947583-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947565-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947567-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947568-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947569-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947558-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947559-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947560-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947561-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947562-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947563-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947564-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947553-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947554-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947555-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947548-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947549-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947550-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947551-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947547-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 75,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947543-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 50,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947544-host",
+        "malware_family": "130-12-180-212",
+        "confidence": 50,
+        "reporter": "BlinkzSec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947153-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947154-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947155-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947156-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947157-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946985-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946982-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946983-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946984-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946975-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946976-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946977-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946972-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946973-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946974-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946969-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946970-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946971-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946829-host",
+        "malware_family": "cowrie",
+        "confidence": 75,
+        "reporter": "YaRi78"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "38.253.224.56",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "bashlite",
+        "sources": [
+          [
+            "ThreatFox",
+            "Bashlite"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "automated",
+        "sources": [
+          [
+            "URLhaus",
+            "automated"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "cowrie",
+        "sources": [
+          [
+            "URLhaus",
+            "cowrie"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 75,
+      "max": 75,
+      "difference": 0
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960506",
+        "malware_family": "Mirai",
+        "confidence": 75,
+        "reporter": "vlasovmichael"
+      },
+      {
+        "source": "ThreatFox",
+        "record_id": "1960412",
+        "malware_family": "Bashlite",
+        "confidence": 75,
+        "reporter": "ksi_digital"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947941-host",
+        "malware_family": null,
+        "confidence": 75,
+        "reporter": "geenensp"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947870-host",
+        "malware_family": "automated",
+        "confidence": 75,
+        "reporter": "Jerry1113"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947860-host",
+        "malware_family": "cowrie",
+        "confidence": 75,
+        "reporter": "YaRi78"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "001f34fdf19d5182498c502703a0bb832d2db88122cf9942eb07f1103fa4e065",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "sh",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "sh"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 60,
+      "max": 75,
+      "difference": 15
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960530",
+        "malware_family": "Unknown malware",
+        "confidence": 75,
+        "reporter": "Portfwd"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "001f34fdf19d-sha256",
+        "malware_family": "sh",
+        "confidence": 60,
+        "reporter": "wristhulk"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "cfc566841ccbd54340b2a1520b2c37d8a494bd8d4964e13738382e8887f0c986",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown loader",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown Loader"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "sh",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "sh"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 60,
+      "difference": 10
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960128",
+        "malware_family": "Unknown Loader",
+        "confidence": 50,
+        "reporter": "von"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "cfc566841ccb-sha256",
+        "malware_family": "sh",
+        "confidence": 60,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "103.170.217.170",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ssh",
+        "sources": [
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ],
+          [
+            "URLhaus",
+            "ssh"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "downloader",
+        "sources": [
+          [
+            "URLhaus",
+            "downloader"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wraith",
+        "sources": [
+          [
+            "URLhaus",
+            "wraith"
+          ],
+          [
+            "URLhaus",
+            "wraith"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 90,
+      "difference": 40
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960325",
+        "malware_family": "Mirai",
+        "confidence": 90,
+        "reporter": "wristhulk"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947878-host",
+        "malware_family": "ssh",
+        "confidence": 75,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947871-host",
+        "malware_family": "ssh",
+        "confidence": 50,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947852-host",
+        "malware_family": "ssh",
+        "confidence": 75,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947854-host",
+        "malware_family": "ssh",
+        "confidence": 75,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947858-host",
+        "malware_family": "ssh",
+        "confidence": 75,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947850-host",
+        "malware_family": "ssh",
+        "confidence": 50,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947845-host",
+        "malware_family": "ssh",
+        "confidence": 50,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947846-host",
+        "malware_family": "ssh",
+        "confidence": 50,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947835-host",
+        "malware_family": "downloader",
+        "confidence": 75,
+        "reporter": "wristhulk"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947823-host",
+        "malware_family": "wraith",
+        "confidence": 75,
+        "reporter": "c2hunter"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947824-host",
+        "malware_family": "wraith",
+        "confidence": 75,
+        "reporter": "c2hunter"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947809-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "94.154.43.37",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 80,
+      "difference": 30
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960347",
+        "malware_family": "Mirai",
+        "confidence": 80,
+        "reporter": "seckle"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947924-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      }
+    ]
+  },
+  {
+    "ioc_type": "domain",
+    "ioc_value": "fable-shine.com",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "amos",
+        "sources": [
+          [
+            "ThreatFox",
+            "AMOS"
+          ],
+          [
+            "URLhaus",
+            "Amos"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "clickfix",
+        "sources": [
+          [
+            "URLhaus",
+            "ClickFix"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 100,
+      "difference": 50
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960373",
+        "malware_family": "AMOS",
+        "confidence": 100,
+        "reporter": "c4ffeine"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947856-host",
+        "malware_family": "Amos",
+        "confidence": 75,
+        "reporter": "c4ffeine"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947840-host",
+        "malware_family": "ClickFix",
+        "confidence": 50,
+        "reporter": "c4ffeine"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "https://fable-shine.com/curl/g0xsutkb0/iwsnry04os3w6i7z3ufc.dat",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "amos",
+        "sources": [
+          [
+            "ThreatFox",
+            "AMOS"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "clickfix",
+        "sources": [
+          [
+            "URLhaus",
+            "ClickFix"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 100,
+      "difference": 50
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960374",
+        "malware_family": "AMOS",
+        "confidence": 100,
+        "reporter": "c4ffeine"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947840-url",
+        "malware_family": "ClickFix",
+        "confidence": 50,
+        "reporter": "c4ffeine"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "176.65.139.231",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "cowrie",
+        "sources": [
+          [
+            "URLhaus",
+            "cowrie"
+          ],
+          [
+            "URLhaus",
+            "cowrie"
+          ],
+          [
+            "URLhaus",
+            "cowrie"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "automated",
+        "sources": [
+          [
+            "URLhaus",
+            "automated"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960413",
+        "malware_family": "Unknown malware",
+        "confidence": 75,
+        "reporter": "ksi_digital"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947837-host",
+        "malware_family": "cowrie",
+        "confidence": 50,
+        "reporter": "zensatori"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947644-host",
+        "malware_family": "automated",
+        "confidence": 50,
+        "reporter": "Jerry1113"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947571-host",
+        "malware_family": "cowrie",
+        "confidence": 50,
+        "reporter": "zensatori"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947572-host",
+        "malware_family": "cowrie",
+        "confidence": 50,
+        "reporter": "zensatori"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946705-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946706-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946707-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946708-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946701-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946702-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946703-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946704-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946693-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946694-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946695-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946696-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946697-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946698-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946699-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946700-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "ClearlyNotB"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "85.137.53.167",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "85-137-53-167",
+        "sources": [
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ],
+          [
+            "URLhaus",
+            "85-137-53-167"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "akuma",
+        "sources": [
+          [
+            "URLhaus",
+            "akuma"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "adb",
+        "sources": [
+          [
+            "URLhaus",
+            "adb"
+          ],
+          [
+            "URLhaus",
+            "adb"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "cowrie",
+        "sources": [
+          [
+            "URLhaus",
+            "cowrie"
+          ],
+          [
+            "URLhaus",
+            "cowrie"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960414",
+        "malware_family": "Mirai",
+        "confidence": 75,
+        "reporter": "ksi_digital"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948050-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948049-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948040-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948041-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948042-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948037-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948039-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948033-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948028-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948029-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948030-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948031-host",
+        "malware_family": "85-137-53-167",
+        "confidence": 75,
+        "reporter": "spydisec"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947864-host",
+        "malware_family": "akuma",
+        "confidence": 75,
+        "reporter": "ksi_digital"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947384-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947385-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947386-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947387-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947388-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947389-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947390-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947377-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947378-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947379-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947380-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947381-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947382-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947383-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947372-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947373-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947374-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947375-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947376-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947328-host",
+        "malware_family": "adb",
+        "confidence": 75,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947329-host",
+        "malware_family": "adb",
+        "confidence": 75,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947087-host",
+        "malware_family": "cowrie",
+        "confidence": 50,
+        "reporter": "YaRi78"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947082-host",
+        "malware_family": "cowrie",
+        "confidence": 50,
+        "reporter": "YaRi78"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "http://110.42.232.120:8897/?h=110.42.232.120&p=8897&t=tcp&a=a64&stage=true&k=b41bfef6tcp",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "vshell",
+        "sources": [
+          [
+            "ThreatFox",
+            "VShell"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "arm64",
+        "sources": [
+          [
+            "URLhaus",
+            "arm64"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 75,
+      "max": 100,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960434",
+        "malware_family": "VShell",
+        "confidence": 100,
+        "reporter": "Daydream"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3948118-url",
+        "malware_family": "arm64",
+        "confidence": 75,
+        "reporter": "Daydream"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "85dfe92b43734f2573a30e0f295a602111cbcecffc8260534a2f41386a6025d9",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "zigclipper",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "ZigClipper"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 100,
+      "difference": 10
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960453",
+        "malware_family": "Unknown malware",
+        "confidence": 100,
+        "reporter": "Daydream"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "85dfe92b4373-sha256",
+        "malware_family": "ZigClipper",
+        "confidence": 90,
+        "reporter": "Daydream"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "https://blaze-x.com/brazzers.msi",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "unknown malware",
+        "sources": [
+          [
+            "ThreatFox",
+            "Unknown malware"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "clickfix",
+        "sources": [
+          [
+            "URLhaus",
+            "ClickFix"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 90,
+      "difference": 40
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960442",
+        "malware_family": "Unknown malware",
+        "confidence": 90,
+        "reporter": "anonymous"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947830-url",
+        "malware_family": "ClickFix",
+        "confidence": 50,
+        "reporter": "anonymous"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "df6f9ce4475da25b324829509ef5c186",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960204",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "df6f9ce4475d-md5",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "2c9056c7f596f9e135ae1fe685b42f87",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "nanocore rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Nanocore RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "nanocore",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "NanoCore"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960201",
+        "malware_family": "Nanocore RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "2c9056c7f596-md5",
+        "malware_family": "NanoCore",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "d5102a93f27c365d5a1d57e82d0d4571d558ff846c50efd7896905fc736148ea",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "quasar rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Quasar RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "quasarrat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "QuasarRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960202",
+        "malware_family": "Quasar RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "d5102a93f27c-sha256",
+        "malware_family": "QuasarRAT",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "cfbd859dc82f8bd3af2c90598a9d46145f6dc4b3663de9e5195812519ab09948",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "netwire rc",
+        "sources": [
+          [
+            "ThreatFox",
+            "NetWire RC"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "connectwise",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "ConnectWise"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960196",
+        "malware_family": "NetWire RC",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "cfbd859dc82f-sha256",
+        "malware_family": "ConnectWise",
+        "confidence": 90,
+        "reporter": "BlinkzSec"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "ea6af616eb4cb6efd68dc8140db720b0",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "netwire rc",
+        "sources": [
+          [
+            "ThreatFox",
+            "NetWire RC"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "connectwise",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "ConnectWise"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960198",
+        "malware_family": "NetWire RC",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "ea6af616eb4c-md5",
+        "malware_family": "ConnectWise",
+        "confidence": 90,
+        "reporter": "BlinkzSec"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "9b4bfdddc2a1a59cf45915fd20f183afb6a255575bb646441d821622600cd223",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "nanocore rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Nanocore RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "nanocore",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "NanoCore"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960199",
+        "malware_family": "Nanocore RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "9b4bfdddc2a1-sha256",
+        "malware_family": "NanoCore",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "25a7c4a7d8ca13429745d57f052401f7",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "orat",
+        "sources": [
+          [
+            "ThreatFox",
+            "oRAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "serorat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "SeroRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960192",
+        "malware_family": "oRAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "25a7c4a7d8ca-md5",
+        "malware_family": "SeroRAT",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "10e851bd7fc8e17b390cb8ccedb4becbe1008ff37e6b327c761b2572f42ea5ab",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "netwire rc",
+        "sources": [
+          [
+            "ThreatFox",
+            "NetWire RC"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "connectwise",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "ConnectWise"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960193",
+        "malware_family": "NetWire RC",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "10e851bd7fc8-sha256",
+        "malware_family": "ConnectWise",
+        "confidence": 90,
+        "reporter": "BlinkzSec"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "a2c0862d74a77d74b4d5c945a994cba3",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "netwire rc",
+        "sources": [
+          [
+            "ThreatFox",
+            "NetWire RC"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "connectwise",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "ConnectWise"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960195",
+        "malware_family": "NetWire RC",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "a2c0862d74a7-md5",
+        "malware_family": "ConnectWise",
+        "confidence": 90,
+        "reporter": "BlinkzSec"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "263ca98327e452380ea330c8a9a5664f",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960189",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "263ca98327e4-md5",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "447e7d5ed5e5bae4d4d34057f2ad9a580583bf363c18befd6c28abec57c0490b",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "orat",
+        "sources": [
+          [
+            "ThreatFox",
+            "oRAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "serorat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "SeroRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960190",
+        "malware_family": "oRAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "447e7d5ed5e5-sha256",
+        "malware_family": "SeroRAT",
+        "confidence": 90,
+        "reporter": "abuse_ch"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "bb65215c42767d9a7f3943a024e39ef9",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960186",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "bb65215c4276-md5",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "dec381ad98ee824cd95313883bc4a17244e8c3a4f37de3b0354fb9f636b2134b",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960187",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "dec381ad98ee-sha256",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "fee6d07c0dfef6724ba1646362fb7c4c",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960183",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "fee6d07c0dfe-md5",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "e58536bb0fb12bfe4253f44f46f4aedbdaa37d195c31d1976e8cb78e925f1d76",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960184",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "e58536bb0fb1-sha256",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "e9f75925a4da2748957701e7a8b25b0b9e724fd86a7d603d099d918f3b34e19a",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "wannacryptor",
+        "sources": [
+          [
+            "ThreatFox",
+            "WannaCryptor"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "wannacry",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "WannaCry"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960181",
+        "malware_family": "WannaCryptor",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "e9f75925a4da-sha256",
+        "malware_family": "WannaCry",
+        "confidence": 90,
+        "reporter": "pawscobbler"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_md5",
+    "ioc_value": "e6bd58f332c9aabe502e35ccedb38313",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "ghost rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Ghost RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "gh0strat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "Gh0stRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960174",
+        "malware_family": "Ghost RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "e6bd58f332c9-md5",
+        "malware_family": "Gh0stRAT",
+        "confidence": 90,
+        "reporter": "Ling"
+      }
+    ]
+  },
+  {
+    "ioc_type": "hash_sha256",
+    "ioc_value": "44cd0e97316c4ed137b1612e5b4d56f7caaa0250d3badbb344927671a6979714",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "ghost rat",
+        "sources": [
+          [
+            "ThreatFox",
+            "Ghost RAT"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "gh0strat",
+        "sources": [
+          [
+            "MalwareBazaar",
+            "Gh0stRAT"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 90,
+      "max": 95,
+      "difference": 5
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960172",
+        "malware_family": "Ghost RAT",
+        "confidence": 95,
+        "reporter": "Grim"
+      },
+      {
+        "source": "MalwareBazaar",
+        "record_id": "44cd0e97316c-sha256",
+        "malware_family": "Gh0stRAT",
+        "confidence": 90,
+        "reporter": "Ling"
+      }
+    ]
+  },
+  {
+    "ioc_type": "url",
+    "ioc_value": "http://45.2.24.40:59399/mozi.m",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mozi",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mozi"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "iot",
+        "sources": [
+          [
+            "URLhaus",
+            "iot"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1960108",
+        "malware_family": "Mozi",
+        "confidence": 75,
+        "reporter": "HoneyLabs"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947836-url",
+        "malware_family": "iot",
+        "confidence": 50,
+        "reporter": "HoneyLabs"
+      }
+    ]
+  },
+  {
+    "ioc_type": "domain",
+    "ioc_value": "brows-check.codes",
+    "conflict_types": [
+      "attribution_conflict",
+      "confidence_discrepancy"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "iclickfix",
+        "sources": [
+          [
+            "ThreatFox",
+            "IClickFix"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "clickfix",
+        "sources": [
+          [
+            "URLhaus",
+            "ClickFix"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 100,
+      "difference": 50
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1959639",
+        "malware_family": "IClickFix",
+        "confidence": 100,
+        "reporter": "threatcat_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947354-host",
+        "malware_family": "ClickFix",
+        "confidence": 50,
+        "reporter": "overbyte"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "36.50.134.86",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ],
+          [
+            "URLhaus",
+            "mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 75,
+      "max": 75,
+      "difference": 0
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1957893",
+        "malware_family": "Mirai",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947158-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946321-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "von"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946320-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "von"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946313-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "von"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946230-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946219-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946220-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946221-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946222-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946223-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946224-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946225-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946226-host",
+        "malware_family": "mirai",
+        "confidence": 75,
+        "reporter": "ClearlyNotB"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "172.245.106.144",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "mirai",
+        "sources": [
+          [
+            "ThreatFox",
+            "Mirai"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "hadoop",
+        "sources": [
+          [
+            "URLhaus",
+            "hadoop"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "ua-wget",
+        "sources": [
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ],
+          [
+            "URLhaus",
+            "ua-wget"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1941179",
+        "malware_family": "Mirai",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946864-host",
+        "malware_family": "hadoop",
+        "confidence": 50,
+        "reporter": "drewfink"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946639-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946642-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946629-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946630-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946631-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946632-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946636-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946627-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946628-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946624-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946625-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946620-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946621-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946622-host",
+        "malware_family": "ua-wget",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946619-host",
+        "malware_family": "ua-wget",
+        "confidence": 75,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3946437-host",
+        "malware_family": null,
+        "confidence": 75,
+        "reporter": "von"
+      }
+    ]
+  },
+  {
+    "ioc_type": "ip",
+    "ioc_value": "193.178.158.107",
+    "conflict_types": [
+      "attribution_conflict"
+    ],
+    "conflicting_families": [
+      {
+        "canonical_name": "amadey",
+        "sources": [
+          [
+            "ThreatFox",
+            "Amadey"
+          ]
+        ]
+      },
+      {
+        "canonical_name": "579cd0",
+        "sources": [
+          [
+            "URLhaus",
+            "579cd0"
+          ],
+          [
+            "URLhaus",
+            "579cd0"
+          ]
+        ]
+      }
+    ],
+    "confidence_range": {
+      "min": 50,
+      "max": 75,
+      "difference": 25
+    },
+    "involved_records": [
+      {
+        "source": "ThreatFox",
+        "record_id": "1926157",
+        "malware_family": "Amadey",
+        "confidence": 50,
+        "reporter": "abuse_ch"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947140-host",
+        "malware_family": "579cd0",
+        "confidence": 75,
+        "reporter": "Bitsight"
+      },
+      {
+        "source": "URLhaus",
+        "record_id": "3947130-host",
+        "malware_family": "579cd0",
+        "confidence": 75,
+        "reporter": "Bitsight"
+      }
+    ]
+  }
+]

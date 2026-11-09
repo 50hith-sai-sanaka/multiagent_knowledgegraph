@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tf-1001",
+    "ioc": "185.220.101.4:8080",
+    "ioc_type": "ip:port",
+    "threat_type": "botnet_cc",
+    "malware": "win.redline",
+    "malware_printable": "RedLine Stealer",
+    "confidence_level": 95,
+    "first_seen": "2026-09-21 08:00:00 UTC",
+    "reporter": "threatfox_researcher_1",
+    "tags": ["RedLine", "stealer", "c2"]
+  },
+  {
+    "id": "tf-1002",
+    "ioc": "45.154.255.87:443",
+    "ioc_type": "ip:port",
+    "threat_type": "botnet_cc",
+    "malware": "win.cobalt_strike",
+    "malware_printable": "Cobalt Strike",
+    "confidence_level": 90,
+    "first_seen": "2026-09-21 09:30:00 UTC",
+    "reporter": "threatfox_researcher_2",
+    "tags": ["CobaltStrike", "beacon"]
+  },
+  {
+    "id": "tf-1003",
+    "ioc": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ioc_type": "sha256_hash",
+    "threat_type": "payload",
+    "malware": "win.agenttesla",
+    "malware_printable": "AgentTesla",
+    "confidence_level": 100,
+    "first_seen": "2026-09-21 07:15:00 UTC",
+    "reporter": "threatfox_analyst",
+    "tags": ["AgentTesla", "keylogger"]
+  }
+]
