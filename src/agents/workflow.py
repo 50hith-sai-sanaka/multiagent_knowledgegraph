@@ -41,6 +41,7 @@ from src.agents.state import AgentState
 from src.coordination.adhoc import AdHocCoordinator
 from src.coordination.mpac import MPACCoordinator
 from src.coordination.ablation import MPACAblationCoordinator
+from src.irs.resolver import IdentityResolutionService
 from src.mcp.tools import MCP_TOOLS
 from src.schemas.models import CoordinationResult, GraphOperation
 
@@ -76,17 +77,22 @@ def _ioc_type_to_label(ioc_type: str | None) -> str:
 
 def _make_coordinator(protocol: str, neo4j_client: Any, lock_manager: Any = None):
     """Instantiate the correct coordinator for the given protocol string."""
-    if protocol == "adhoc":
+    p = (protocol or "").strip().lower()
+    if p == "adhoc":
         return AdHocCoordinator(neo4j_client)
-    if protocol == "mpac":
+    if p in ("mpac", "g2cp", "protocol2"):
         return MPACCoordinator(neo4j_client, lock_manager=lock_manager)
     ablations = {
         "ablation_no_a2a": "no_a2a",
+        "no_a2a": "no_a2a",
         "ablation_no_locks": "no_semantic_locks",
+        "no_semantic_locks": "no_semantic_locks",
         "ablation_timestamp": "timestamp_ordered",
+        "timestamp_ordered": "timestamp_ordered",
+        "fcfs_arb": "fcfs_arb",
     }
-    if protocol in ablations:
-        return MPACAblationCoordinator(neo4j_client, ablations[protocol], lock_manager=lock_manager)
+    if p in ablations:
+        return MPACAblationCoordinator(neo4j_client, ablations[p], lock_manager=lock_manager)
     raise ValueError(f"Unsupported coordination protocol: {protocol!r}")
 
 
@@ -376,6 +382,13 @@ async def submit_to_coordinator(state: AgentState) -> dict:
                 protocol=state.get("protocol", "mpac"),
             )
         }
+
+    try:
+        claim = IdentityResolutionService().canonicalize_operation(
+            claim.model_copy(update={"is_functional": True})
+        )
+    except Exception as exc:
+        logger.warning("[%s] Failed to canonicalize claim via IRS: %s", state.get("principal_id"), exc)
 
     neo4j_client = state.get("neo4j_client")
     if neo4j_client is None:

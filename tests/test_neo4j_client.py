@@ -198,3 +198,53 @@ async def test_get_approved_vocabulary_contains_tier1(client):
     assert "Malware" in vocab["all_nodes"]
     assert "IP" in vocab["all_nodes"]
     assert "USES_C2" in vocab["all_relationships"]
+
+
+# ── State Hydration Unit Tests (STORY-005) ───────────────────────────────────
+from unittest.mock import AsyncMock
+
+
+@pytest.mark.asyncio
+async def test_hydrate_existing_claims_mock():
+    mock_client = Neo4jClient()
+    mock_client.run = AsyncMock(
+        return_value=[
+            {
+                "claim_id": "claim-001",
+                "operation_id": "op-001",
+                "node_label": "IP",
+                "node_key": "value",
+                "node_value": "185.220.101.4",
+                "predicate": "USES_C2",
+                "target_label": "Malware",
+                "target_key": "name",
+                "target_value": "redline stealer",
+                "confidence": 90,
+                "principal": "threatfox",
+                "valid_from": "2026-10-12T10:00:00Z",
+                "upstream_origin_signature": "sig-001",
+                "is_functional": True,
+            }
+        ]
+    )
+
+    hydrated = await mock_client.hydrate_existing_claims(["185.220.101.4"])
+    assert len(hydrated) == 1
+    assert hydrated[0].node_value == "185.220.101.4"
+    assert hydrated[0].target_value == "redline stealer"
+    assert hydrated[0].is_functional is True
+    assert hydrated[0].principal == "threatfox"
+
+
+@pytest.mark.asyncio
+async def test_hydrate_existing_claims_empty():
+    mock_client = Neo4jClient()
+    mock_client.run = AsyncMock(return_value=[])
+
+    hydrated = await mock_client.hydrate_existing_claims(["10.0.0.1"])
+    assert hydrated == []
+
+    # Empty list input returns immediately without querying
+    hydrated_empty = await mock_client.hydrate_existing_claims([])
+    assert hydrated_empty == []
+

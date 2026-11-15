@@ -110,3 +110,50 @@ async def test_partial_multi_key_acquisition_is_released():
         await manager.acquire(["a", "b"])
     assert not manager._local_locks["a"].locked()
     externally_held.release()
+
+
+@pytest.mark.asyncio
+async def test_acquire_fenced_monotonic_tokens():
+    mgr = SemanticLockManager(use_redis=False)
+    await mgr.connect()
+
+    tokens1, f1 = await mgr.acquire_fenced(["key_a", "key_b"])
+    assert f1 > 0
+    assert len(tokens1) == 2
+    await mgr.release(tokens1)
+
+    tokens2, f2 = await mgr.acquire_fenced(["key_c"])
+    assert f2 > f1, "Fencing tokens must be monotonically increasing"
+    await mgr.release(tokens2)
+
+    await mgr.close()
+
+
+@pytest.mark.asyncio
+async def test_locked_fenced_context_manager():
+    mgr = SemanticLockManager(use_redis=False)
+    await mgr.connect()
+
+    async with mgr.locked_fenced(["resource_x"]) as (tokens, fence):
+        assert "resource_x" in tokens
+        assert fence > 0
+
+    # Ensure release happened
+    t_after, _ = await mgr.acquire_fenced(["resource_x"])
+    assert t_after is not None
+    await mgr.release(t_after)
+    await mgr.close()
+
+
+@pytest.mark.asyncio
+async def test_acquire_fenced_with_custom_timeout_and_ttl():
+    mgr = SemanticLockManager(use_redis=False)
+    await mgr.connect()
+
+    tokens, fence = await mgr.acquire_fenced(["resource_y"], timeout_ms=2000, ttl_ms=5000)
+    assert "resource_y" in tokens
+    assert fence > 0
+    await mgr.release(tokens)
+    await mgr.close()
+
+

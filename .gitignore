@@ -7,4 +7,6 @@ venv/
 # Python byte‑code and caches
 *.pyc
 __pycache__/
+.pytest_cache/
+.ruff_cache/
 

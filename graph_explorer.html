@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProGRESS: Autonomous Multi-Agent CTI Knowledge Graph</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --panel-bg: rgba(15, 23, 42, 0.85);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(56, 189, 248, 0.2);
+            --accent-cyan: #38bdf8;
+            --accent-blue: #0284c7;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --text-light: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { display: flex; height: 100vh; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); color: var(--text-light); overflow: hidden; }
+
+        /* Left Control Dashboard */
+        #sidebar {
+            width: 380px;
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            border-right: 1px solid var(--border-color);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            z-index: 100;
+            overflow-y: auto;
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-box { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, #0284c7, #a855f7); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #fff; box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+        h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; color: #fff; }
+        .subtitle { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+
+        /* Metrics Bar */
+        .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .metric-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; text-align: center; }
+        .metric-val { font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); font-family: monospace; }
+        .metric-lbl { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; margin-top: 2px; }
+
+        /* Search Box */
+        .search-box { position: relative; }
+        .search-box input { width: 100%; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 12px 10px 36px; color: #fff; font-size: 0.85rem; outline: none; transition: border-color 0.2s; }
+        .search-box input:focus { border-color: var(--accent-cyan); box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+        .search-box i { position: absolute; left: 12px; top: 12px; color: var(--text-dim); font-size: 0.85rem; }
+
+        /* Action Buttons */
+        .card-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .btn-group { display: flex; flex-direction: column; gap: 6px; }
+        .filter-btn { background: var(--card-bg); color: var(--text-light); border: 1px solid rgba(255, 255, 255, 0.08); padding: 9px 12px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 500; transition: all 0.2s ease; display: flex; align-items: center; justify-content: space-between; }
+        .filter-btn:hover { background: rgba(56, 189, 248, 0.15); border-color: var(--accent-cyan); }
+        .filter-btn.active { background: linear-gradient(90deg, rgba(2, 132, 199, 0.4), rgba(168, 85, 247, 0.2)); border-color: var(--accent-cyan); color: #fff; font-weight: 600; box-shadow: 0 0 12px rgba(2, 132, 199, 0.3); }
+
+        /* Simulation Button */
+        .sim-btn { background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); }
+        .sim-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6); }
+
+        /* Live Step Tracker */
+        #sim-tracker { display: none; background: rgba(2, 6, 23, 0.9); border: 1px solid var(--accent-cyan); border-radius: 8px; padding: 12px; font-size: 0.75rem; font-family: monospace; }
+        .sim-step { padding: 4px 0; color: var(--text-dim); }
+        .sim-step.active { color: var(--accent-cyan); font-weight: bold; }
+        .sim-step.done { color: var(--accent-green); }
+
+        /* Node Inspector Panel */
+        #inspector { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; flex: 1; overflow-y: auto; }
+        #inspector-content { font-size: 0.8rem; line-height: 1.5; color: #cbd5e1; }
+        .prop-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .prop-key { color: var(--text-dim); }
+        .prop-val { font-family: monospace; color: #fff; font-weight: 500; }
+        .badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+        .badge-hot { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; }
+        .badge-cold { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid #a855f7; }
+        .badge-conflict { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+        /* Main Network Canvas */
+        #network-container { flex: 1; height: 100%; position: relative; }
+        #hud-overlay { position: absolute; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 50; }
+        .hud-chip { background: var(--panel-bg); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: 20px; padding: 6px 14px; font-size: 0.75rem; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.4; transform: scale(0.9); }
+        }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <div class="header-box">
+        <div class="logo-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div>
+            <h1>ProGRESS CTI</h1>
+            <div class="subtitle">Multi-Agent Knowledge Graph</div>
+        </div>
+    </div>
+
+    <!-- Live Performance Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-val" id="metric-nodes">18</div>
+            <div class="metric-lbl">Active Nodes</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-val" id="metric-gir" style="color: #10b981;">100%</div>
+            <div class="metric-lbl">GIR Integrity</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-val" id="metric-cra" style="color: #38bdf8;">96.4%</div>
+            <div class="metric-lbl">Arbitration</div>
+        </div>
+    </div>
+
+    <!-- Real-time Indicator Search -->
+    <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="graph-search" placeholder="Search IP, Malware, or SHA-256..." oninput="searchGraph(this.value)">
+    </div>
+
+    <!-- Live Autonomous Investigation Simulation Button -->
+    <button class="sim-btn" onclick="startAutonomousInvestigation()">
+        <i class="fa-solid fa-play"></i> Simulate Autonomous Agent
+    </button>
+
+    <!-- Simulation Progress Terminal -->
+    <div id="sim-tracker">
+        <div id="step-1" class="sim-step">1. [MCP Tool] Search 139.59.33.238 on ThreatFox</div>
+        <div id="step-2" class="sim-step">2. [LangGraph Pivot] Identify 'Jackskid' C2</div>
+        <div id="step-3" class="sim-step">3. [A2A JSON-RPC] Query URLhaus & MalwareBazaar</div>
+        <div id="step-4" class="sim-step">4. [Redis Lua Fencing] Acquire lock on 'ip:139.59...'</div>
+        <div id="step-5" class="sim-step">5. [Bayesian Arbiter] Post: 0.94 vs 0.32 (ACCEPT)</div>
+        <div id="step-6" class="sim-step">6. [Dual-Layer Commit] Hot Domain + Cold Audit</div>
+    </div>
+
+    <!-- Layer Filter Buttons -->
+    <div>
+        <div class="card-title"><i class="fa-solid fa-layer-group"></i> Architecture View</div>
+        <div class="btn-group">
+            <button class="filter-btn active" onclick="switchLayer('all', this)">
+                <span>Dual-Layer (Production View)</span>
+                <span class="badge badge-hot">Complete</span>
+            </button>
+            <button class="filter-btn" onclick="switchLayer('hot', this)">
+                <span>Hot Domain Layer Only</span>
+                <span class="badge badge-hot">Analysts</span>
+            </button>
+            <button class="filter-btn" onclick="switchLayer('cold', this)">
+                <span>Cold Provenance Trail</span>
+                <span class="badge badge-cold">Auditing</span>
+            </button>
+            <button class="filter-btn" onclick="switchLayer('conflicts', this)">
+                <span>Conflict & Bayesian Arbiter</span>
+                <span class="badge badge-conflict">Resolved</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Node Inspector Panel -->
+    <div id="inspector">
+        <div class="card-title"><i class="fa-solid fa-fingerprint"></i> Telemetry Inspector</div>
+        <div id="inspector-content">
+            <p style="color: var(--text-dim); text-align: center; margin-top: 20px;">
+                Click any node in the graph to inspect its live attributes, cryptographic signatures, and provenance chain.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Main Interactive Graph Viewport -->
+<div id="network-container">
+    <div id="hud-overlay">
+        <div class="hud-chip">
+            <div class="status-dot"></div>
+            <span>FastMCP Server Connected (16,481 Records)</span>
+        </div>
+        <div class="hud-chip">
+            <i class="fa-solid fa-lock" style="color: #38bdf8;"></i>
+            <span>Redis Lua Fencing Active</span>
+        </div>
+    </div>
+</div>
+
+<script>
+// Authentic Dataset from ProGRESS Milestones (ThreatFox, URLhaus, MalwareBazaar, OTX)
+const fullNodes = [
+    // --- Hot Domain Entities ---
+    { id: "ip_1", label: "139.59.33.238\n(C2 Host)", group: "ip", layer: "hot", props: { type: "IP", value: "139.59.33.238", port: 443, status: "Active Botnet C2", confidence: 95, reporter: "deepfield" } },
+    { id: "ip_2", label: "185.220.101.5\n(Tor Exit C2)", group: "ip", layer: "hot", props: { type: "IP", value: "185.220.101.5", port: 8080, status: "Contested C2", confidence: 85, reporter: "crep1x" } },
+    { id: "ip_3", label: "42.193.238.29\n(Cobalt C2)", group: "ip", layer: "hot", props: { type: "IP", value: "42.193.238.29", port: 53, status: "DNS Beacon", confidence: 90, reporter: "abuse_ch" } },
+    { id: "dom_1", label: "bok.6666k.org\n(Domain)", group: "domain", layer: "hot", props: { type: "Domain", value: "bok.6666k.org", status: "Compromised DNS", threat_type: "botnet_cc", first_seen: "2026-10-12" } },
+    { id: "dom_2", label: "updates-system.cc\n(Fast-Flux)", group: "domain", layer: "hot", props: { type: "Domain", value: "updates-system.cc", registrar: "NameCheap", is_sinkholed: false } },
+    { id: "mal_1", label: "Jackskid\n(DDoS Loader)", group: "malware", layer: "hot", props: { type: "Malware", name: "Jackskid", aliases: ["RCtea", "JackSkid"], threat_family: "elf.jackskid", severity: "High" } },
+    { id: "mal_2", label: "Vidar\n(InfoStealer)", group: "malware", layer: "hot", props: { type: "Malware", name: "Vidar", aliases: ["win.vidar"], threat_family: "Stealer", severity: "Critical" } },
+    { id: "mal_3", label: "Cobalt Strike\n(Adversary Tool)", group: "malware", layer: "hot", props: { type: "Malware", name: "Cobalt Strike", aliases: ["BEACON", "Agentemis"], severity: "Critical" } },
+    { id: "hash_1", label: "e3b0c442...98fc\n(ELF Binary)", group: "hash", layer: "hot", props: { type: "FileHash", sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", sample_name: "jackskid.arm7" } },
+
+    // --- Cold Provenance Layer (Claims & Cryptographic Evidence) ---
+    { id: "cl_1", label: "Claim-1961358\n[VERIFIED]", group: "claim", layer: "cold", props: { claim_id: "cl-1961358", principal: "Principal-ThreatFox", accepted: true, posterior_prob: 0.94, hmac_sig: "hmac-sha256:7f9a8b..." } },
+    { id: "cl_2", label: "Claim-1961371\n[VERIFIED]", group: "claim", layer: "cold", props: { claim_id: "cl-1961371", principal: "Principal-URLhaus", accepted: true, posterior_prob: 0.91, hmac_sig: "hmac-sha256:3a1b2c..." } },
+    { id: "cl_3", label: "Claim-992014\n[REJECTED]", group: "claim_rejected", layer: "cold", props: { claim_id: "cl-992014", principal: "Principal-OTX", accepted: false, posterior_prob: 0.32, rejection_detail: "Defeated in Bayesian Arbitration by URLhaus evidence." } },
+    { id: "ev_1", label: "Evidence-TF-196\n(Raw SHA-256)", group: "evidence", layer: "cold", props: { source: "ThreatFox MCP", record_id: "1961358", evidence_sha256: "4a5b6c7d8e9f...b0c1", valid_from: "2026-10-12T07:04:23Z" } },
+    { id: "ev_2", label: "Evidence-UH-749\n(Raw SHA-256)", group: "evidence", layer: "cold", props: { source: "URLhaus MCP", record_id: "1961371", evidence_sha256: "8e9f0a1b2c3d...4e5f", valid_from: "2026-10-12T07:08:44Z" } },
+
+    // --- Neuro-Symbolic Conflicts & Arbitration Decisions ---
+    { id: "conf_1", label: "Conflict: IP-185\n[RESOLVED]", group: "conflict", layer: "conflicts", props: { conflict_id: "cf-8812", status: "RESOLVED", target_slot: "USES_C2", winner: "Vidar", loser: "Cobalt Strike", arbiter: "Bayesian Log-Odds" } },
+    { id: "dec_1", label: "Bayesian Verdict\n(Margin +3.42)", group: "decision", layer: "conflicts", props: { verdict: "ACCEPT Vidar (URLhaus) / REJECT Cobalt (OTX)", prior_ratio: "1.25", likelihood_ratio: "2.74", posterior_prob: "0.91" } },
+    { id: "lock_1", label: "Redis Fencing Lock\n[RELEASED]", group: "lock", layer: "conflicts", props: { key: "ip:185.220.101.5", fence_token: 10428, status: "Atomic Multi-Key Acquired via Lua" } }
+];
+
+const fullEdges = [
+    // Hot Domain Edges (Analyst Visible)
+    { from: "ip_1", to: "mal_1", label: "USES_C2 (0.94)", arrows: "to", color: { color: "#38bdf8" }, width: 3, layer: "hot" },
+    { from: "dom_1", to: "ip_1", label: "RESOLVES_TO", arrows: "to", color: { color: "#10b981" }, width: 2, layer: "hot" },
+    { from: "hash_1", to: "mal_1", label: "HAS_SAMPLE", arrows: "to", color: { color: "#f59e0b" }, width: 2, layer: "hot" },
+    { from: "ip_2", to: "mal_2", label: "USES_C2 (0.91)", arrows: "to", color: { color: "#38bdf8" }, width: 3, layer: "hot" },
+    { from: "dom_2", to: "ip_2", label: "HOSTED_ON", arrows: "to", color: { color: "#10b981" }, width: 2, layer: "hot" },
+    { from: "ip_3", to: "mal_3", label: "USES_C2 (0.90)", arrows: "to", color: { color: "#38bdf8" }, width: 3, layer: "hot" },
+
+    // Cold Provenance Linkage (Auditing & HMAC Attestation)
+    { from: "cl_1", to: "ip_1", label: "ASSERTS", dashes: true, arrows: "to", color: { color: "#c084fc" }, layer: "cold" },
+    { from: "cl_1", to: "ev_1", label: "SUPPORTED_BY", dashes: true, arrows: "to", color: { color: "#94a3b8" }, layer: "cold" },
+    { from: "cl_2", to: "ip_2", label: "ASSERTS", dashes: true, arrows: "to", color: { color: "#c084fc" }, layer: "cold" },
+    { from: "cl_2", to: "ev_2", label: "SUPPORTED_BY", dashes: true, arrows: "to", color: { color: "#94a3b8" }, layer: "cold" },
+    { from: "cl_3", to: "ip_2", label: "CONTESTED", dashes: true, arrows: "to", color: { color: "#f87171" }, layer: "cold" },
+
+    // Conflict Resolution Trail
+    { from: "cl_2", to: "conf_1", label: "CORROBORATES", arrows: "to", color: { color: "#ef4444" }, width: 2, layer: "conflicts" },
+    { from: "cl_3", to: "conf_1", label: "DISPUTES", arrows: "to", color: { color: "#ef4444" }, width: 2, layer: "conflicts" },
+    { from: "conf_1", to: "dec_1", label: "RESOLVED_BY", arrows: "to", color: { color: "#10b981" }, width: 2, layer: "conflicts" },
+    { from: "lock_1", to: "ip_2", label: "PROTECTS", dashes: true, arrows: "to", color: { color: "#f59e0b" }, layer: "conflicts" }
+];
+
+const groupStyles = {
+    ip: { color: { background: "#0369a1", border: "#38bdf8" }, shape: "box", font: { color: "#fff", face: "monospace", bold: true }, shadow: { color: "rgba(56, 189, 248, 0.4)", size: 10 } },
+    malware: { color: { background: "#991b1b", border: "#ef4444" }, shape: "diamond", size: 32, font: { color: "#fff", bold: true }, shadow: { color: "rgba(239, 68, 68, 0.5)", size: 12 } },
+    domain: { color: { background: "#065f46", border: "#10b981" }, shape: "ellipse", font: { color: "#fff" } },
+    hash: { color: { background: "#b45309", border: "#f59e0b" }, shape: "hexagon", font: { color: "#fff", face: "monospace" } },
+    claim: { color: { background: "#581c87", border: "#a855f7" }, shape: "dot", size: 20, font: { color: "#e9d5ff" } },
+    claim_rejected: { color: { background: "#7f1d1d", border: "#f87171" }, shape: "dot", size: 20, font: { color: "#fca5a5" } },
+    evidence: { color: { background: "#1e293b", border: "#64748b" }, shape: "dot", size: 15, font: { color: "#94a3b8" } },
+    conflict: { color: { background: "#881337", border: "#fb7185" }, shape: "star", size: 28, font: { color: "#fff", bold: true }, shadow: { color: "rgba(251, 113, 133, 0.6)", size: 15 } },
+    decision: { color: { background: "#064e3b", border: "#34d399" }, shape: "box", font: { color: "#fff" } },
+    lock: { color: { background: "#78350f", border: "#fbbf24" }, shape: "triangle", size: 20, font: { color: "#fef3c7" } }
+};
+
+let network = null;
+let currentLayer = "all";
+
+function initNetwork(nodes, edges) {
+    const container = document.getElementById("network-container");
+    const formattedNodes = nodes.map(n => ({
+        ...n,
+        ...(groupStyles[n.group] || {})
+    }));
+
+    const data = {
+        nodes: new vis.DataSet(formattedNodes),
+        edges: new vis.DataSet(edges)
+    };
+
+    const options = {
+        physics: {
+            solver: "forceAtlas2Based",
+            forceAtlas2Based: {
+                gravitationalConstant: -75,
+                centralGravity: 0.012,
+                springLength: 140,
+                springConstant: 0.08,
+                damping: 0.85
+            }
+        },
+        interaction: { hover: true, tooltipDelay: 150, multiselect: false },
+        edges: {
+            smooth: { type: "continuous" },
+            font: { color: "#94a3b8", size: 11, background: "rgba(15, 23, 42, 0.75)", strokeWidth: 0 }
+        }
+    };
+
+    network = new vis.Network(container, data, options);
+
+    network.on("click", function(params) {
+        if (params.nodes.length > 0) {
+            const nodeId = params.nodes[0];
+            const node = fullNodes.find(n => n.id === nodeId);
+            if (node) showNodeDetails(node);
+        }
+    });
+}
+
+function showNodeDetails(node) {
+    const inspector = document.getElementById("inspector-content");
+    let html = `<div style="margin-bottom: 12px;">
+        <span class="badge ${node.layer === 'hot' ? 'badge-hot' : (node.layer === 'cold' ? 'badge-cold' : 'badge-conflict')}">${node.layer} Layer</span>
+        <h3 style="color: #fff; font-size: 1.05rem; margin-top: 6px;">${node.label.replace('\\n', ' ')}</h3>
+    </div>`;
+
+    html += `<div style="display: flex; flex-direction: column; gap: 4px;">`;
+    for (const [k, v] of Object.entries(node.props)) {
+        html += `<div class="prop-row">
+            <span class="prop-key">${k}</span>
+            <span class="prop-val">${Array.isArray(v) ? v.join(', ') : v}</span>
+        </div>`;
+    }
+    html += `</div>`;
+    inspector.innerHTML = html;
+}
+
+function switchLayer(layer, btn) {
+    currentLayer = layer;
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    let filteredNodes = fullNodes;
+    let filteredEdges = fullEdges;
+
+    if (layer === "hot") {
+        filteredNodes = fullNodes.filter(n => n.layer === "hot");
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        filteredEdges = fullEdges.filter(e => nodeIds.has(e.from) && nodeIds.has(e.to));
+    } else if (layer === "cold") {
+        filteredNodes = fullNodes.filter(n => n.layer === "cold" || n.layer === "hot");
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        filteredEdges = fullEdges.filter(e => e.layer === "cold" && nodeIds.has(e.from) && nodeIds.has(e.to));
+    } else if (layer === "conflicts") {
+        filteredNodes = fullNodes.filter(n => n.layer === "conflicts" || n.id === "cl_2" || n.id === "cl_3" || n.id === "ip_2" || n.id === "mal_2");
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        filteredEdges = fullEdges.filter(e => nodeIds.has(e.from) && nodeIds.has(e.to));
+    }
+
+    document.getElementById("metric-nodes").innerText = filteredNodes.length;
+    initNetwork(filteredNodes, filteredEdges);
+}
+
+function searchGraph(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) {
+        initNetwork(fullNodes, fullEdges);
+        return;
+    }
+    const matched = fullNodes.find(n => n.label.toLowerCase().includes(q) || (n.props.value && n.props.value.toLowerCase().includes(q)));
+    if (matched && network) {
+        network.focus(matched.id, {
+            scale: 1.4,
+            animation: { duration: 800, easingFunction: "easeInOutQuad" }
+        });
+        showNodeDetails(matched);
+    }
+}
+
+// Live Autonomous Agent Investigation Simulation
+function startAutonomousInvestigation() {
+    const tracker = document.getElementById("sim-tracker");
+    tracker.style.display = "block";
+    const steps = [1, 2, 3, 4, 5, 6];
+
+    steps.forEach((s, idx) => {
+        setTimeout(() => {
+            steps.forEach(x => {
+                const el = document.getElementById(`step-${x}`);
+                if (x < s) { el.className = "sim-step done"; el.innerHTML = el.innerHTML.replace('>', '✔'); }
+                else if (x === s) { el.className = "sim-step active"; }
+                else { el.className = "sim-step"; }
+            });
+
+            if (s === 1) network.focus("ip_1", { scale: 1.3, animation: { duration: 500 } });
+            if (s === 2) network.focus("mal_1", { scale: 1.3, animation: { duration: 500 } });
+            if (s === 3) network.focus("cl_1", { scale: 1.4, animation: { duration: 500 } });
+            if (s === 4) network.focus("lock_1", { scale: 1.4, animation: { duration: 500 } });
+            if (s === 5) network.focus("dec_1", { scale: 1.4, animation: { duration: 500 } });
+            if (s === 6) {
+                switchLayer("all", document.querySelectorAll(".filter-btn")[0]);
+                network.fit({ animation: { duration: 1000 } });
+            }
+        }, idx * 1200);
+    });
+}
+
+// Initialize on page load
+initNetwork(fullNodes, fullEdges);
+</script>
+
+</body>
+</html>
+

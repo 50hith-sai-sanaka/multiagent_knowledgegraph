@@ -91,3 +91,35 @@ def test_invalid_category_raises():
     validator = make_validator()
     with pytest.raises(ValueError, match="Unknown category"):
         validator.validate("SomeType", "INVALID_CATEGORY", confirmation_count=2)
+
+
+
+# ----------------------------------------------------------------------
+# STORY-003 Upgraded Tests: Predicate Metadata & Dynamic Routing
+# ----------------------------------------------------------------------
+def test_predicate_functionality_metadata():
+    validator = make_validator()
+    assert validator.is_predicate_functional("USES_C2") is True
+    assert validator.is_predicate_functional("HAS_SAMPLE") is True
+    assert validator.is_predicate_functional("HOSTED_ON") is False
+    assert validator.is_predicate_functional("DISTRIBUTED_VIA") is False
+    assert validator.is_predicate_functional("NONEXISTENT_REL") is False
+
+
+@pytest.mark.asyncio
+async def test_validate_and_route_merge():
+    validator = make_validator()
+    routed = await validator.validate_and_route("USES_C2", "RELATIONSHIP_TYPE", "threatfox")
+    assert routed["canonical_term"] == "USES_C2"
+    assert routed["status"] == "APPROVED"
+    assert routed["is_functional"] is True
+
+
+@pytest.mark.asyncio
+async def test_validate_and_route_provisional():
+    validator = make_validator()
+    with patch.object(validator, "_compute_nearest_similarity", return_value=(0.30, "Malware")):
+        routed = await validator.validate_and_route("NovelCryptoMiner", "NODE_LABEL", "threatfox")
+    assert routed["canonical_term"] == "NovelCryptoMiner"
+    assert routed["status"] == "PROVISIONAL"
+    assert routed["is_functional"] is False

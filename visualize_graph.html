@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProGRESS Knowledge Graph Visualizer</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { display: flex; height: 100vh; background: #0f172a; color: #f8fafc; overflow: hidden; }
+        #sidebar { width: 340px; background: #1e293b; border-right: 1px solid #334155; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; z-index: 10; }
+        #network-container { flex: 1; height: 100%; position: relative; }
+        h1 { font-size: 1.25rem; font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+        .subtitle { font-size: 0.82rem; color: #94a3b8; line-height: 1.4; }
+        .card { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 14px; }
+        .card-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #cbd5e1; margin-bottom: 10px; }
+        .btn-group { display: flex; flex-direction: column; gap: 8px; }
+        button { background: #334155; color: #f8fafc; border: 1px solid #475569; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; transition: all 0.15s ease; text-align: left; }
+        button:hover { background: #475569; }
+        button.active { background: #0284c7; border-color: #38bdf8; }
+        .legend-item { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; margin-bottom: 6px; }
+        .legend-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); }
+        #node-details { font-size: 0.82rem; line-height: 1.5; color: #cbd5e1; white-space: pre-wrap; word-break: break-all; }
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }
+        .badge-hot { background: #0284c7; color: #e0f2fe; }
+        .badge-cold { background: #7c3aed; color: #ede9fe; }
+        .badge-conflict { background: #dc2626; color: #fee2e2; }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <div>
+        <h1>ProGRESS Graph</h1>
+        <p class="subtitle">Multi-Agent CTI Knowledge Graph & Dual-Layer Provenance Visualizer</p>
+    </div>
+
+    <div class="card">
+        <div class="card-title">View Layer Filter</div>
+        <div class="btn-group">
+            <button class="active" onclick="filterGraph('all', this)">Dual-Layer (Hot Domain + Provenance)</button>
+            <button onclick="filterGraph('hot', this)">Hot Domain Layer Only (Analyst View)</button>
+            <button onclick="filterGraph('cold', this)">Cold Provenance Only (Audit Trail)</button>
+            <button onclick="filterGraph('conflicts', this)">Active Conflicts & Arbitration</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Legend</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#38bdf8;"></div> IP Indicator <span class="badge badge-hot">Hot</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ef4444;"></div> Malware Family <span class="badge badge-hot">Hot</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#10b981;"></div> Domain / URL <span class="badge badge-hot">Hot</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a855f7;"></div> Provenance Claim <span class="badge badge-cold">Cold</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div> Telemetry Evidence <span class="badge badge-cold">Cold</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#e11d48;"></div> Conflict Node <span class="badge badge-conflict">Audit</span></div>
+    </div>
+
+    <div class="card" style="flex: 1;">
+        <div class="card-title">Selected Node Details</div>
+        <div id="node-details">Click any node in the graph to inspect its properties, evidence hashes, and arbitration status.</div>
+    </div>
+</div>
+
+<div id="network-container"></div>
+
+<script>
+const allNodes = [
+    // Hot Domain Layer
+    { id: "ip_1", label: "139.59.33.238\n(IP)", group: "ip", layer: "hot", props: { type: "IP", value: "139.59.33.238", status: "Active C2", confidence: 90 } },
+    { id: "ip_2", label: "185.220.101.5\n(IP)", group: "ip", layer: "hot", props: { type: "IP", value: "185.220.101.5", status: "Tor Exit C2", confidence: 85 } },
+    { id: "mal_1", label: "Jackskid\n(Malware)", group: "malware", layer: "hot", props: { type: "Malware", name: "Jackskid", aliases: ["JackSkid", "SkidLoader"], severity: "High" } },
+    { id: "mal_2", label: "Emotet\n(Malware)", group: "malware", layer: "hot", props: { type: "Malware", name: "Emotet", aliases: ["Heodo", "Geodo"], severity: "Critical" } },
+    { id: "dom_1", label: "updates-system.cc\n(Domain)", group: "domain", layer: "hot", props: { type: "Domain", value: "updates-system.cc", registrar: "NameCheap", is_sinkholed: false } },
+    { id: "hash_1", label: "e3b0c442...98fc\n(FileHash)", group: "hash", layer: "hot", props: { type: "FileHash", sha256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" } },
+
+    // Cold Provenance Layer
+    { id: "cl_1", label: "Claim-1961358\n(Accepted)", group: "claim", layer: "cold", props: { claim_id: "cl-1961358", principal: "Principal-ThreatFox", accepted: true, posterior_prob: 0.94 } },
+    { id: "cl_2", label: "Claim-749201\n(Accepted)", group: "claim", layer: "cold", props: { claim_id: "cl-749201", principal: "Principal-URLhaus", accepted: true, posterior_prob: 0.88 } },
+    { id: "cl_3", label: "Claim-992014\n(Rejected)", group: "claim", layer: "cold", props: { claim_id: "cl-992014", principal: "Principal-OTX", accepted: false, posterior_prob: 0.32, reject_reason: "Defeated in Bayesian Log-Odds arbitration" } },
+    { id: "ev_1", label: "Evidence-TF-196\n(SHA-256)", group: "evidence", layer: "cold", props: { source: "ThreatFox", raw_sha256: "4a5b6c7d...8e9f", timestamp: "2026-10-12T14:32:00Z" } },
+    { id: "ev_2", label: "Evidence-UH-749\n(SHA-256)", group: "evidence", layer: "cold", props: { source: "URLhaus", raw_sha256: "1f2e3d4c...5b6a", timestamp: "2026-10-12T14:35:10Z" } },
+
+    // Conflict & Decision
+    { id: "conf_1", label: "Conflict: IP-185\n(RESOLVED)", group: "conflict", layer: "conflicts", props: { conflict_id: "cf-8812", status: "RESOLVED", target_slot: "USES_C2", winner: "Emotet", loser: "QBot", algorithm: "Laplace-Smoothed Bayesian Log-Odds" } },
+    { id: "dec_1", label: "Arbitration\nVerdict", group: "decision", layer: "conflicts", props: { verdict: "ACCEPT Jackskid / REJECT QBot", log_odds_margin: "+3.42", tie_breaker: "None (Clear Bayesian Winner)" } },
+];
+
+const allEdges = [
+    // Hot Domain Edges
+    { from: "ip_1", to: "mal_1", label: "USES_C2", color: { color: "#38bdf8" }, arrows: "to", layer: "hot" },
+    { from: "ip_2", to: "mal_2", label: "USES_C2", color: { color: "#38bdf8" }, arrows: "to", layer: "hot" },
+    { from: "dom_1", to: "ip_1", label: "RESOLVES_TO", color: { color: "#10b981" }, arrows: "to", layer: "hot" },
+    { from: "hash_1", to: "mal_1", label: "HAS_SAMPLE", color: { color: "#f59e0b" }, arrows: "to", layer: "hot" },
+
+    // Provenance Links (Cold to Hot)
+    { from: "cl_1", to: "ip_1", label: "ASSERTS", dashes: true, color: { color: "#a855f7" }, arrows: "to", layer: "cold" },
+    { from: "cl_1", to: "ev_1", label: "SUPPORTED_BY", dashes: true, color: { color: "#a855f7" }, arrows: "to", layer: "cold" },
+    { from: "cl_2", to: "ip_2", label: "ASSERTS", dashes: true, color: { color: "#a855f7" }, arrows: "to", layer: "cold" },
+    { from: "cl_2", to: "ev_2", label: "SUPPORTED_BY", dashes: true, color: { color: "#a855f7" }, arrows: "to", layer: "cold" },
+    { from: "cl_3", to: "ip_2", label: "CONTESTS", dashes: true, color: { color: "#ef4444" }, arrows: "to", layer: "cold" },
+
+    // Conflict Links
+    { from: "cl_2", to: "conf_1", label: "INVOLVED_IN", color: { color: "#e11d48" }, arrows: "to", layer: "conflicts" },
+    { from: "cl_3", to: "conf_1", label: "INVOLVED_IN", color: { color: "#e11d48" }, arrows: "to", layer: "conflicts" },
+    { from: "conf_1", to: "dec_1", label: "RESOLVED_BY", color: { color: "#e11d48" }, arrows: "to", layer: "conflicts" },
+];
+
+const groupStyles = {
+    ip: { color: { background: "#0284c7", border: "#38bdf8" }, shape: "box", font: { color: "#fff", face: "monospace" } },
+    malware: { color: { background: "#b91c1c", border: "#ef4444" }, shape: "diamond", font: { color: "#fff" } },
+    domain: { color: { background: "#047857", border: "#10b981" }, shape: "ellipse", font: { color: "#fff" } },
+    hash: { color: { background: "#d97706", border: "#f59e0b" }, shape: "hexagon", font: { color: "#fff", face: "monospace" } },
+    claim: { color: { background: "#6d28d9", border: "#a855f7" }, shape: "dot", size: 24, font: { color: "#ddd" } },
+    evidence: { color: { background: "#334155", border: "#94a3b8" }, shape: "dot", size: 16, font: { color: "#aaa" } },
+    conflict: { color: { background: "#be123c", border: "#fb7185" }, shape: "star", size: 26, font: { color: "#fff" } },
+    decision: { color: { background: "#0f766e", border: "#2dd4bf" }, shape: "box", font: { color: "#fff" } }
+};
+
+let network = null;
+
+function renderNetwork(nodes, edges) {
+    const container = document.getElementById("network-container");
+    const data = {
+        nodes: new vis.DataSet(nodes.map(n => ({ ...n, ...groupStyles[n.group] }))),
+        edges: new vis.DataSet(edges)
+    };
+    const options = {
+        physics: {
+            solver: "forceAtlas2Based",
+            forceAtlas2Based: { gravitationalConstant: -60, centralGravity: 0.01, springLength: 120, damping: 0.8 }
+        },
+        interaction: { hover: true, tooltipDelay: 200 }
+    };
+    network = new vis.Network(container, data, options);
+
+    network.on("click", function(params) {
+        if (params.nodes.length > 0) {
+            const nodeId = params.nodes[0];
+            const node = allNodes.find(n => n.id === nodeId);
+            if (node) {
+                document.getElementById("node-details").innerHTML =
+                    `<strong>Label:</strong> ${node.label.replace('\\n', ' ')}\n` +
+                    `<strong>Layer:</strong> ${node.layer.toUpperCase()}\n\n` +
+                    `<strong>Properties:</strong>\n` + JSON.stringify(node.props, null, 2);
+            }
+        }
+    });
+}
+
+function filterGraph(mode, btn) {
+    document.querySelectorAll(".btn-group button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    let filteredNodes = allNodes;
+    let filteredEdges = allEdges;
+
+    if (mode === "hot") {
+        filteredNodes = allNodes.filter(n => n.layer === "hot");
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        filteredEdges = allEdges.filter(e => nodeIds.has(e.from) && nodeIds.has(e.to));
+    } else if (mode === "cold") {
+        filteredNodes = allNodes.filter(n => n.layer === "cold" || n.layer === "hot");
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        filteredEdges = allEdges.filter(e => e.layer === "cold" && nodeIds.has(e.from) && nodeIds.has(e.to));
+    } else if (mode === "conflicts") {
+        filteredNodes = allNodes.filter(n => n.layer === "conflicts" || n.id === "cl_2" || n.id === "cl_3" || n.id === "ip_2" || n.id === "mal_2");
+        const nodeIds = new Set(filteredNodes.map(n => n.id));
+        filteredEdges = allEdges.filter(e => nodeIds.has(e.from) && nodeIds.has(e.to));
+    }
+
+    renderNetwork(filteredNodes, filteredEdges);
+}
+
+// Initial render
+renderNetwork(allNodes, allEdges);
+</script>
+
+</body>
+</html>
+

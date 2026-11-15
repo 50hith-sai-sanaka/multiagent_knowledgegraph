@@ -115,3 +115,9 @@ def test_benchmark_job_is_accepted_and_not_executed(api):
     assert fetched.status_code == 200
     assert fetched.json()["gir"] is None
     assert api.get("/api/v1/benchmark/results/missing").status_code == 404
+
+
+def test_graph_ui_endpoint(api):
+    response = api.get("/graph")
+    assert response.status_code == 200
+    assert "ProGRESS CTI" in response.text

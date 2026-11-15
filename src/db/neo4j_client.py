@@ -30,6 +30,7 @@ import uuid
 from typing import Any
 
 from neo4j import AsyncDriver, AsyncGraphDatabase
+from src.schemas.models import GraphOperation
 
 logger = logging.getLogger(__name__)
 
@@ -157,6 +158,7 @@ class Neo4jClient:
         """
         constraints = [
             # ── Tier 1 Core Entity Constraints ────────────────────────────────
+            ("CREATE CONSTRAINT cst_entity_canonical_id IF NOT EXISTS FOR (e:Entity) REQUIRE e.canonical_id IS UNIQUE"),
             ("CREATE CONSTRAINT cst_malware_name IF NOT EXISTS FOR (m:Malware) REQUIRE m.name IS UNIQUE"),
             ("CREATE CONSTRAINT cst_threat_actor_name IF NOT EXISTS FOR (a:ThreatActor) REQUIRE a.name IS UNIQUE"),
             ("CREATE CONSTRAINT cst_campaign_id IF NOT EXISTS FOR (c:Campaign) REQUIRE c.id IS UNIQUE"),
@@ -448,3 +450,64 @@ class Neo4jClient:
             "all_nodes": sorted(TIER1_NODE_TYPES | tier2_nodes),
             "all_relationships": sorted(TIER1_RELATIONSHIP_TYPES | tier2_rels),
         }
+
+    # ── State Hydration ───────────────────────────────────────────────────────
+
+    async def hydrate_existing_claims(self, subject_values: list[str]) -> list[GraphOperation]:
+        """
+        Hydrate prior active claims from Neo4j for locked subject indicator values.
+
+        Enables pre-commit conflict detection when an incoming batch has only 1 operation.
+        Returns a list of GraphOperation instances representing prior claims.
+        """
+        if not subject_values:
+            return []
+
+        cypher = """
+        MATCH (c:Claim)
+        WHERE (c.node_value IN $subjects OR c.subject IN $subjects)
+          AND coalesce(c.accepted, true) = true
+        OPTIONAL MATCH (c)-[:GROUNDED_IN]->(e:Evidence)
+        OPTIONAL MATCH (p:Principal)-[:ASSERTED]->(c)
+        RETURN c.id AS claim_id,
+               coalesce(c.operation_id, c.id) AS operation_id,
+               coalesce(c.node_label, 'IP') AS node_label,
+               coalesce(c.node_key, 'value') AS node_key,
+               coalesce(c.node_value, c.subject) AS node_value,
+               coalesce(c.predicate, 'USES_C2') AS predicate,
+               coalesce(c.target_label, 'Malware') AS target_label,
+               coalesce(c.target_key, 'name') AS target_key,
+               coalesce(c.target_value, c.target, '') AS target_value,
+               coalesce(c.confidence, 80) AS confidence,
+               coalesce(p.id, c.principal, 'unknown') AS principal,
+               coalesce(c.valid_from, e.timestamp, '') AS valid_from,
+               coalesce(c.origin_sig, e.origin_sig, '') AS upstream_origin_signature,
+               coalesce(c.is_functional, true) AS is_functional
+        """
+        try:
+            records = await self.run(cypher, {"subjects": subject_values})
+            hydrated: list[GraphOperation] = []
+            for r in records:
+                op = GraphOperation(
+                    operation="hydrate",
+                    operation_id=r["operation_id"],
+                    claim_id=r["claim_id"],
+                    lock_keys=[f"entity:{r['node_label'].lower()}:{r['node_value'].lower()}"],
+                    node_label=r["node_label"],
+                    node_key=r["node_key"],
+                    node_value=r["node_value"],
+                    predicate=r["predicate"],
+                    target_label=r["target_label"],
+                    target_key=r["target_key"],
+                    target_value=r["target_value"],
+                    confidence=int(r["confidence"]),
+                    principal=r["principal"],
+                    valid_from=r["valid_from"] or "2026-10-12T00:00:00Z",
+                    upstream_origin_signature=r["upstream_origin_signature"],
+                    is_functional=bool(r["is_functional"]),
+                )
+                hydrated.append(op)
+            return hydrated
+        except Exception as e:
+            logger.warning("Could not hydrate existing claims from Neo4j: %s", e)
+            return []

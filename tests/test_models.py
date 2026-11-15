@@ -100,3 +100,69 @@ def test_normalize_timestamp_success(raw, iso_expected, epoch_expected):
 def test_normalize_timestamp_invalid():
     with pytest.raises(ValueError, match="Unsupported timestamp format"):
         normalize_timestamp("not-a-timestamp")
+
+
+# ----------------------------------------------------------------------
+# STORY-001 Upgraded Tests: Edge Operations & Timezone Normalization
+# ----------------------------------------------------------------------
+from src.schemas import PeerAttestation
+
+
+def test_claim_generate_id_timezone_normalization():
+    ev = "evidence-tz-1"
+    # Same instant in UTC vs. +05:30 offset
+    ts_utc = datetime(2026, 10, 12, 12, 0, 0, tzinfo=timezone.utc)
+    ts_offset = ts_utc.astimezone(timezone(timedelta(hours=5, minutes=30)))
+
+    id_utc = Claim.generate_id(ev, ts_utc)
+    id_offset = Claim.generate_id(ev, ts_offset)
+    assert id_utc == id_offset, "Identical instants in different timezone offsets must yield identical SHA256 IDs"
+
+
+def test_peer_attestation_creation():
+    att = PeerAttestation(
+        responder_principal="urlhaus",
+        stance="CONFIRM",
+        confidence=90,
+        evidence_id="rec-1234",
+        upstream_origin_signature="abuse_ch:185.220.101.4:redline",
+        signature="mock-hmac-sha256-signature",
+    )
+    assert att.responder_principal == "urlhaus"
+    assert att.stance == "CONFIRM"
+    assert att.confidence == 90
+    assert att.signature != ""
+
+
+def test_graph_operation_edge_fields_and_defaults():
+    att = PeerAttestation(responder_principal="otx", stance="ABSTAIN")
+    op = GraphOperation(
+        operation="create_edge",
+        lock_keys=["entity:ip:185.220.101.4", "slot:ip:185.220.101.4:uses_c2"],
+        node_label="IP",
+        node_key="value",
+        node_value="185.220.101.4",
+        predicate="USES_C2",
+        target_label="Malware",
+        target_key="name",
+        target_value="RedLine Stealer",
+        confidence=95,
+        is_functional=True,
+        peer_attestations=[att],
+    )
+    assert op.predicate == "USES_C2"
+    assert op.target_value == "RedLine Stealer"
+    assert op.is_functional is True
+    assert len(op.peer_attestations) == 1
+    assert op.lock_keys == ["entity:ip:185.220.101.4", "slot:ip:185.220.101.4:uses_c2"]
+
+
+def test_coordination_result_with_fencing_token():
+    res = CoordinationResult(
+        status="ACCEPTED",
+        operations_committed=1,
+        fencing_token=42,
+        posterior_prob=0.985,
+    )
+    assert res.fencing_token == 42
+    assert res.posterior_prob == 0.985

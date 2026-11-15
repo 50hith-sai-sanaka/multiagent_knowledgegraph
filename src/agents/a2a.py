@@ -11,6 +11,7 @@ import asyncio
 import logging
 from typing import List, Tuple
 
+from src.a2a.peer_hub import A2APeerHub
 from src.mcp.tools import MCP_TOOLS
 from src.schemas.models import A2AResponse
 
