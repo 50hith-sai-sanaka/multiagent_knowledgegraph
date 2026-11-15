@@ -5,7 +5,7 @@ Sprint: Sprint 1 (STORY-002)
 
 Provides:
   - IOC canonicalization (IP, Domain, URL, Hash)
-  - Malware synonym normalization (Heodo -> emotet, RedLine -> redline stealer)
+  - Malware synonym normalization (Heodo -> emotet, RedLine -> redline stealer) aligned with Malpedia taxonomy
   - Deterministic lexicographical mutex lock key construction
   - Operation canonicalization
 """
