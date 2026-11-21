@@ -17,6 +17,7 @@ from pydantic import BaseModel, Field
 
 from src.a2a.peer_hub import a2a_router, close_shared_mcp_session
 from src.agents.workflow import run_agent
+from src.api.analyst_routes import analyst_router
 from src.coordination.lock_manager import SemanticLockManager
 from src.db.neo4j_client import Neo4jClient
 from src.graphrag.retriever import GraphRAGRetriever
@@ -90,6 +91,9 @@ app = FastAPI(
 # Mount Real A2A HTTP JSON-RPC Router (GET /.well-known/agent.json, POST /a2a/{principal}/tasks/send)
 app.include_router(a2a_router)
 
+# Mount NL-GraphRAG Analyst Copilot Router (POST /api/v1/analyst/chat, GET /api/v1/analyst/suggested-prompts)
+app.include_router(analyst_router)
+
 
 def _response(state: dict) -> dict:
     result = state.get("result")
@@ -115,7 +119,19 @@ async def health() -> dict[str, Any]:
 @app.get("/graph", response_class=FileResponse)
 async def get_graph_ui() -> FileResponse:
     """Serve the interactive ProGRESS Knowledge Graph Visualizer."""
-    return FileResponse("graph_explorer.html")
+    return FileResponse(
+        "graph_explorer.html",
+        headers={"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0"}
+    )
+
+
+@app.get("/copilot", response_class=FileResponse)
+async def get_copilot_ui() -> FileResponse:
+    """Serve the NL-GraphRAG Analyst Copilot with integrated Knowledge Graph."""
+    return FileResponse(
+        "copilot.html",
+        headers={"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0"}
+    )
 
 
 @app.post("/agents/process")

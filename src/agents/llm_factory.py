@@ -27,11 +27,21 @@ _CACHE_LOCK = asyncio.Lock()
 def get_chat_llm(temperature: float = 0.0):
     """Instantiate configured LLM provider (Gemini, OpenAI, Groq)."""
     provider = os.getenv("LLM_PROVIDER", "gemini").lower()
-    model_name = os.getenv("LLM_MODEL", "gemini-2.5-flash")
+    model_name = os.getenv("LLM_MODEL", "gemini-3.8-flash")
 
     if provider == "gemini":
-        from langchain_google_genai import ChatGoogleGenerativeAI
-        return ChatGoogleGenerativeAI(model=model_name, temperature=temperature)
+        api_key = os.getenv("LLM_API_KEY") or os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+        try:
+            from langchain_google_genai import ChatGoogleGenerativeAI
+            return ChatGoogleGenerativeAI(model=model_name, google_api_key=api_key, temperature=temperature)
+        except ImportError:
+            from langchain_openai import ChatOpenAI
+            return ChatOpenAI(
+                model=model_name,
+                api_key=api_key,
+                base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+                temperature=temperature,
+            )
     if provider == "groq":
         from langchain_groq import ChatGroq
         return ChatGroq(model=model_name, temperature=temperature)

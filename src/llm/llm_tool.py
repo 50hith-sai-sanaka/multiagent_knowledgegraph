@@ -34,9 +34,9 @@ logger = logging.getLogger(__name__)
 # ──────────────────────────────────────────────────────────────────────────────
 _PROVIDER_CONFIGS: dict[str, dict[str, Any]] = {
     "gemini": {
-        # Google Gemini 2.5 Flash — free tier via AI Studio
+        # Google Gemini 3.8 Flash — free tier via AI Studio
         "base_url": "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-        "default_model": "gemini-2.5-flash",
+        "default_model": "gemini-3.8-flash",
         "auth_param": "key",  # passed as ?key=... query param
         "request_format": "gemini",
     },
